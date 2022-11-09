@@ -1,51 +1,31 @@
---- APKBUILD.orig	2022-11-07 20:59:12.350238097 +0900
-+++ APKBUILD	2022-09-25 20:49:33.002278668 +0900
-@@ -2,7 +2,7 @@
- # Maintainer: Sean McAvoy <seanmcavoy@gmail.com>
- pkgname=partclone
- pkgver=0.3.20
--pkgrel=1
-+pkgrel=0
- pkgdesc="utilities to save and restore used blocks on a partition"
- url="https://partclone.org"
- arch="all"
-@@ -13,6 +13,7 @@ makedepends="
+--- APKBUILD.orig
++++ APKBUILD
+@@ -13,6 +13,7 @@
  	ntfs-3g-dev
  	f2fs-tools-dev
  	hfsprogs
-+        xfsprogs-dev
++	xfsprogs-dev
  	ncurses-dev
  	automake
  	autoconf
-@@ -21,7 +22,7 @@ makedepends="
- 	libtool
- 	intltool
- 	gettext-dev
--	openssl-dev>3
-+	openssl-dev
- 	diffutils
- 	coreutils
- 	bash
-@@ -29,6 +30,8 @@ makedepends="
+@@ -29,6 +30,8 @@
  subpackages="$pkgname-doc $pkgname-lang"
  source="https://github.com/Thomas-Tsai/partclone/archive/$pkgver/partclone-$pkgver.tar.gz
  	musl.patch
-+        radix-tree.patch
-+        linux.patch
++	radix-tree.patch
++	linux.patch
  	"
  
  if [ "$CARCH" = "riscv64" ]; then
-@@ -48,7 +51,8 @@ build() {
+@@ -48,6 +51,7 @@
  		--enable-btrfs \
  		--enable-minix \
  		--enable-f2fs \
--		--enable-hfsp
-+		--enable-hfsp \
-+                --enable-xfs
++		--enable-xfs \
+ 		--enable-hfsp
  	make
  }
- check() {
-@@ -63,4 +67,6 @@ package() {
+@@ -63,4 +67,6 @@
  sha512sums="
  32dced369973c39412c562ab8731ff7b490f464b5ed4033456e6b23f3f79c437f43dc9db4c79b4821f35e4997d1444c8d80c53816b2a3bb90836fb5ad33b368e  partclone-0.3.20.tar.gz
  0676b34c5818f8866e733b0aee151e8220b8db839ba732acfdaad4dcea81a4b5d514a520e43c79efcf53ba0788c9a7f06c043441b4d1f56dd684882329efce9d  musl.patch

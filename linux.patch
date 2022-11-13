@@ -1,5 +1,5 @@
---- aports/community/partclone/src/partclone-0.3.20/src/xfs/libxfs/linux.c
-+++ work/src/xfs/libxfs/linux.c
+--- linux.c.orig
++++ linux.c
 @@ -163,7 +163,7 @@
  platform_findsizes(char *path, int fd, long long *sz, int *bsz)
  {

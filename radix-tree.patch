@@ -1,4 +1,4 @@
---- radix-tree.c.orig
+--- aports/community/partclone/src/partclone-0.3.20/src/xfs/libxfs/radix-tree.c
 +++ radix-tree.c
 @@ -66,21 +66,21 @@
  static inline void tag_set(struct radix_tree_node *node, unsigned int tag,

@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: alpine:3.16    
+    container: alpine:3.17    
     steps:
       - name: Install sdk
         run: apk add alpine-sdk sudo
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3  
         with:
           repository: alpinelinux/aports
-          ref: 3.16-stable
+          ref: 3.17-stable
           path: aports
       - name: Prepare abuild
 #          echo "permit nopass :wheel" >> /etc/doas.d/doas.conf      

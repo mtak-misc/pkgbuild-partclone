@@ -9,7 +9,9 @@ jobs:
     container: alpine:3.17    
     steps:
       - name: Install sdk
-        run: apk add alpine-sdk sudo
+        run: |
+          apk upgrade
+          apk add alpine-sdk sudo
       - name: Checkount repository
         uses: actions/checkout@v3  
       - name: Checkount aports repository
